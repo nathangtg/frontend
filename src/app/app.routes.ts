@@ -16,5 +16,10 @@ export const routes: Routes = [
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
+  },
+  {
+    path: 'admin/users',
+    loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule) // Load the module
   }
+
 ];
