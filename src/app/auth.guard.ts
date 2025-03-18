@@ -9,6 +9,11 @@ export const authGuard = (
   const authService = inject(AuthService);
   const router = inject(Router);
 
+  // Allow unauthenticated access to register
+  if (state.url.startsWith('/auth/register')) {
+    return true;
+  }
+
   if (authService.isAuthenticated()) {
     return true;
   }
